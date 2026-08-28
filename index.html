@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Controle Financeiro</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <h1>Controle Financeiro</h1>
+
+    <main class="conteiner">
+
+        <!-- ========================= -->
+        <!-- RESUMO FINANCEIRO -->
+        <!-- ========================= -->
+
+        <section id="secao-resumo">
+
+            <h2>Resumo Financeiro</h2>
+
+            <p id="indicador-filtros"></p>
+
+            <div id="resumo">
+
+                <div class="resumo-card resumo-receitas">
+
+                    <div class="resumo-titulo">
+                        Receitas
+                    </div>
+
+                    <div id="receitas" class="resumo-valor">
+                    </div>
+
+                </div>
+
+
+                <div class="resumo-card resumo-despesas">
+
+                    <div class="resumo-titulo">
+                        Despesas
+                    </div>
+
+                    <div id="despesas" class="resumo-valor">
+                    </div>
+
+                </div>
+
+
+                <div class="resumo-card resumo-saldo">
+
+                    <div class="resumo-titulo">
+                        Saldo
+                    </div>
+
+                    <div id="saldo" class="resumo-valor">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- DASHBOARD FINANCEIRO -->
+        <!-- ========================= -->
+
+        <section id="dashboard">
+
+            <h2>Dashboard Financeiro</h2>
+
+            <!-- INDICADORES -->
+
+            <div class="dashboard-indicadores">
+
+                <!-- ============================= -->
+                <!-- TOTAL DE MOVIMENTAÇÕES -->
+                <!-- ============================= -->
+
+                <div class="indicador-card indicador-movimentacoes">
+
+                    <div class="indicador-titulo">
+                        Movimentações
+                    </div>
+
+                    <div id="dashboard-total-movimentacoes" class="indicador-valor">
+                        0
+                    </div>
+
+                    <div id="dashboard-total-movimentacoes-descricao" class="indicador-descricao">
+                        no período
+                    </div>
+
+                </div>
+
+
+                <!-- ============================= -->
+                <!-- MAIOR DESPESA -->
+                <!-- ============================= -->
+
+                <div class="indicador-card indicador-despesa">
+
+                    <div class="indicador-titulo">
+                        Maior Despesa
+                    </div>
+
+                    <div id="dashboard-maior-despesa" class="indicador-valor">
+                        R$ 0,00
+                    </div>
+
+                    <div id="dashboard-maior-despesa-nome" class="indicador-descricao">
+                        Nenhuma despesa
+                    </div>
+
+                </div>
+
+
+                <!-- ============================= -->
+                <!-- MAIOR CATEGORIA -->
+                <!-- ============================= -->
+
+                <div class="indicador-card indicador-categoria">
+
+                    <div class="indicador-titulo">
+                        Maior Categoria
+                    </div>
+
+                    <div id="dashboard-maior-categoria" class="indicador-valor">
+                        R$ 0,00
+                    </div>
+
+                    <div id="dashboard-maior-categoria-nome" class="indicador-descricao">
+                        Nenhuma categoria
+                    </div>
+
+                    <div id="dashboard-maior-categoria-percentual" class="indicador-detalhe">
+                        0% das despesas
+                    </div>
+
+                </div>
+
+
+                <!-- ============================= -->
+                <!-- COMPROMETIMENTO -->
+                <!-- ============================= -->
+
+                <div class="indicador-card indicador-comprometimento">
+
+                    <div class="indicador-titulo">
+                        Comprometimento da Receita
+                    </div>
+
+                    <div id="dashboard-percentual-despesas" class="indicador-valor">
+                        0%
+                    </div>
+
+                    <div id="dashboard-percentual-descricao" class="indicador-descricao">
+                        Nenhuma despesa
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- GRÁFICOS -->
+
+            <div class="graficos">
+
+                <!-- RECEITAS X DESPESAS -->
+
+                <div class="grafico-card">
+
+                    <h3>
+                        Receitas x Despesas
+                    </h3>
+
+                    <div class="grafico-container">
+
+                        <canvas id="grafico-financeiro"></canvas>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DESPESAS POR CATEGORIA -->
+
+                <div class="grafico-card">
+
+                    <h3>
+                        Despesas por Categoria
+                    </h3>
+
+                    <div class="grafico-container">
+
+                        <canvas id="grafico-categorias"></canvas>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EVOLUÇÃO MENSAL -->
+
+                <div class="grafico-card grafico-largo">
+
+                    <h3>
+                        Evolução Financeira
+                    </h3>
+
+                    <div class="grafico-container grafico-evolucao">
+
+                        <canvas id="grafico-evolucao"></canvas>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- FORMULÁRIO -->
+        <!-- ========================= -->
+
+        <section id="secao-formulario">
+
+            <h2>Adicionar Movimentação</h2>
+
+            <form id="form-movimentacao">
+
+                <div class="form-grupo">
+
+                    <label for="descricao">
+                        Descrição
+                    </label>
+
+                    <input type="text" id="descricao" placeholder="Ex: Mercado">
+
+                </div>
+
+
+                <div class="form-grupo">
+
+                    <label for="valor">
+                        Valor
+                    </label>
+
+                    <input type="number" id="valor" placeholder="Ex: 150" step="0.01" min="0">
+
+                </div>
+
+
+                <div class="form-grupo">
+
+                    <label for="tipo">
+                        Tipo
+                    </label>
+
+                    <select id="tipo">
+
+                        <option value="receita">
+                            Receita
+                        </option>
+
+                        <option value="despesa">
+                            Despesa
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-grupo">
+
+                    <label for="categoria">
+                        Categoria
+                    </label>
+
+                    <input type="text" id="categoria" placeholder="Ex: Alimentação">
+
+                </div>
+
+
+                <div class="form-grupo">
+
+                    <label for="data">
+                        Data
+                    </label>
+
+                    <input type="date" id="data">
+
+                </div>
+
+
+                <button class="button1" type="submit">
+                    Adicionar Movimentação
+                </button>
+
+
+                <button type="button" id="botao-cancelar" style="display: none;">
+                    Cancelar Edição
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- MOVIMENTAÇÕES -->
+        <!-- ========================= -->
+
+        <section id="secao-movimentacoes">
+
+            <h2>Movimentações</h2>
+
+
+            <!-- BUSCA -->
+
+            <div class="area-busca">
+
+                <input type="text" id="busca-movimentacao" placeholder="Buscar movimentação...">
+
+            </div>
+
+
+            <!-- FILTROS -->
+
+            <div class="area-filtros">
+
+                <div class="titulo-filtros">
+                    Filtros
+                </div>
+
+
+                <div class="controles-filtros">
+
+                    <select id="filtro-tipo">
+
+                        <option value="todas">
+                            Todas
+                        </option>
+
+                        <option value="receita">
+                            Receitas
+                        </option>
+
+                        <option value="despesa">
+                            Despesas
+                        </option>
+
+                    </select>
+
+
+                    <select id="filtro-categoria">
+
+                        <option value="todas">
+                            Todas as Categorias
+                        </option>
+
+                    </select>
+
+
+                    <select id="filtro-mes">
+
+                        <option value="todos">
+                            Todos os meses
+                        </option>
+
+                    </select>
+
+
+                    <button type="button" id="botao-limpar-filtros">
+                        Limpar Filtros
+                    </button>
+
+                </div>
+
+
+                <div id="contador-movimentacoes">
+                </div>
+
+            </div>
+
+
+            <!-- LISTA -->
+
+            <div id="lista-movimentacoes">
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Chart.js -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- JavaScript da aplicação -->
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

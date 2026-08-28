@@ -1,0 +1,1105 @@
+/* ========================================= */
+/* CONFIGURAÇÕES GERAIS */
+/* ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 30px;
+    background-color: #f5f5f5;
+    color: #111;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+
+/* ========================================= */
+/* CONTAINER PRINCIPAL */
+/* ========================================= */
+
+.conteiner {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+
+/* ========================================= */
+/* RESUMO FINANCEIRO */
+/* ========================================= */
+
+#resumo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 15px 0 25px;
+}
+
+.resumo-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 18px;
+    text-align: center;
+}
+
+.resumo-titulo {
+    font-size: 12px;
+    color: #666;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.resumo-valor {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.resumo-receitas {
+    border-top: 4px solid #008f20;
+}
+
+.resumo-despesas {
+    border-top: 4px solid #ff0000;
+}
+
+.resumo-saldo {
+    border-top: 4px solid #005eff;
+}
+
+.resumo-receitas .resumo-valor {
+    color: #008f20;
+}
+
+.resumo-despesas .resumo-valor {
+    color: #ff0000;
+}
+
+.resumo-saldo .resumo-valor {
+    color: #005eff;
+}
+
+
+/* ========================================= */
+/* INDICADOR DOS FILTROS */
+/* ========================================= */
+
+#indicador-filtros {
+    font-size: 13px;
+    color: #555;
+    margin: 5px 0 10px;
+}
+
+
+/* ========================================= */
+/* DASHBOARD FINANCEIRO */
+/* ========================================= */
+
+#dashboard {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#dashboard h2 {
+    margin-bottom: 15px;
+}
+
+
+/* ========================================= */
+/* INDICADORES DO DASHBOARD */
+/* ========================================= */
+
+.dashboard-indicadores {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+
+/* ========================================= */
+/* CARD DO INDICADOR */
+/* ========================================= */
+
+.indicador-card {
+    background-color: #fff;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    padding: 16px 12px;
+
+    min-height: 105px;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.indicador-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ========================================= */
+/* TÍTULO */
+/* ========================================= */
+
+.indicador-titulo {
+    font-size: 10px;
+
+    font-weight: 500;
+
+    color: #666;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.3px;
+
+    line-height: 1.3;
+
+    margin-bottom: 8px;
+}
+
+
+/* ========================================= */
+/* VALOR */
+/* ========================================= */
+
+.indicador-valor {
+    font-size: 20px;
+
+    font-weight: bold;
+
+    line-height: 1.2;
+
+    margin-bottom: 5px;
+}
+
+
+/* ========================================= */
+/* DESCRIÇÃO */
+/* ========================================= */
+
+.indicador-descricao {
+    font-size: 11px;
+
+    color: #555;
+
+    line-height: 1.3;
+
+    margin-top: 2px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* ========================================= */
+/* DETALHE */
+/* ========================================= */
+
+.indicador-detalhe {
+    font-size: 10px;
+
+    color: #777;
+
+    margin-top: 4px;
+
+    line-height: 1.3;
+}
+
+
+/* ========================================= */
+/* MOVIMENTAÇÕES */
+/* ========================================= */
+
+.indicador-movimentacoes {
+    border-top: 3px solid #007bff;
+}
+
+.indicador-movimentacoes .indicador-valor {
+    color: #007bff;
+}
+
+
+/* ========================================= */
+/* MAIOR DESPESA */
+/* ========================================= */
+
+.indicador-despesa {
+    border-top: 3px solid #dc3545;
+}
+
+.indicador-despesa .indicador-valor {
+    color: #dc3545;
+}
+
+
+/* ========================================= */
+/* MAIOR CATEGORIA */
+/* ========================================= */
+
+.indicador-categoria {
+    border-top: 3px solid #fd7e14;
+}
+
+.indicador-categoria .indicador-valor {
+    color: #fd7e14;
+}
+
+
+/* ========================================= */
+/* COMPROMETIMENTO DA RECEITA */
+/* ========================================= */
+
+.indicador-comprometimento {
+    border-top: 3px solid #6f42c1;
+}
+
+.indicador-comprometimento .indicador-valor {
+    color: #6f42c1;
+}
+
+
+/* ========================================= */
+/* BAIXO COMPROMETIMENTO */
+/* Até 30% */
+/* ========================================= */
+
+.indicador-comprometimento.comprometimento-baixo {
+    border-top-color: #008f20;
+}
+
+.indicador-comprometimento.comprometimento-baixo .indicador-valor {
+    color: #008f20;
+}
+
+
+/* ========================================= */
+/* COMPROMETIMENTO MODERADO */
+/* 30% até 60% */
+/* ========================================= */
+
+.indicador-comprometimento.comprometimento-moderado {
+    border-top-color: #f1c40f;
+}
+
+.indicador-comprometimento.comprometimento-moderado .indicador-valor {
+    color: #d4a900;
+}
+
+
+/* ========================================= */
+/* ALTO COMPROMETIMENTO */
+/* 60% até 80% */
+/* ========================================= */
+
+.indicador-comprometimento.comprometimento-alto {
+    border-top-color: #fd7e14;
+}
+
+.indicador-comprometimento.comprometimento-alto .indicador-valor {
+    color: #fd7e14;
+}
+
+
+/* ========================================= */
+/* MUITO ALTO */
+/* Acima de 80% */
+/* ========================================= */
+
+.indicador-comprometimento.comprometimento-muito-alto {
+    border-top-color: #dc3545;
+}
+
+.indicador-comprometimento.comprometimento-muito-alto .indicador-valor {
+    color: #dc3545;
+}
+
+
+/* ========================================= */
+/* SEM RECEITAS */
+/* ========================================= */
+
+.indicador-comprometimento.comprometimento-neutro {
+    border-top-color: #6c757d;
+}
+
+.indicador-comprometimento.comprometimento-neutro .indicador-valor {
+    color: #6c757d;
+}
+
+/* ========================================= */
+/* ÁREA DOS GRÁFICOS */
+/* ========================================= */
+
+.graficos {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+
+/* ========================================= */
+/* CARD DO GRÁFICO */
+/* ========================================= */
+
+.grafico-card {
+    background-color: #fff;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    padding: 15px;
+
+    min-width: 0;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.grafico-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.07);
+}
+
+
+/* ========================================= */
+/* TÍTULO DOS GRÁFICOS */
+/* ========================================= */
+
+.grafico-card h3 {
+    margin: 0 0 12px 0;
+
+    text-align: center;
+
+    font-size: 14px;
+}
+
+
+/* ========================================= */
+/* CONTAINER DOS GRÁFICOS */
+/* ========================================= */
+
+.grafico-container {
+    position: relative;
+
+    width: 100%;
+
+    height: 240px;
+}
+
+
+/* ========================================= */
+/* GRÁFICO DE EVOLUÇÃO */
+/* ========================================= */
+
+.grafico-largo {
+    grid-column: 1 / -1;
+}
+
+.grafico-evolucao {
+    height: 300px;
+}
+
+
+/* ========================================= */
+/* CANVAS */
+/* ========================================= */
+
+.grafico-container canvas {
+    width: 100% !important;
+
+    height: 100% !important;
+}
+
+
+/* ========================================= */
+/* FORMULÁRIO */
+/* ========================================= */
+
+#form-movimentacao {
+    background-color: white;
+
+    padding: 20px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    margin-bottom: 25px;
+}
+
+.form-grupo {
+    display: flex;
+
+    flex-direction: column;
+
+    margin-bottom: 15px;
+}
+
+.form-grupo label {
+    margin-bottom: 6px;
+
+    font-weight: bold;
+
+    font-size: 13px;
+}
+
+.form-grupo input,
+.form-grupo select {
+    width: 100%;
+
+    padding: 10px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    background-color: white;
+}
+
+.form-grupo input:focus,
+.form-grupo select:focus,
+.area-busca input:focus {
+    outline: none;
+
+    border-color: #007bff;
+
+    box-shadow:
+        0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+
+/* ========================================= */
+/* BOTÕES DO FORMULÁRIO */
+/* ========================================= */
+
+#form-movimentacao button {
+    width: 100%;
+
+    padding: 11px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    margin-top: 3px;
+}
+
+
+/* ========================================= */
+/* BOTÃO ADICIONAR / SALVAR */
+/* ========================================= */
+
+#form-movimentacao button[type="submit"] {
+    background-color: #ffff00;
+
+    color: #000;
+
+    font-weight: 500;
+}
+
+#form-movimentacao button[type="submit"]:hover {
+    background-color: #e6e600;
+}
+
+
+/* ========================================= */
+/* BOTÃO CANCELAR */
+/* ========================================= */
+
+#botao-cancelar {
+    background-color: #6c757d;
+
+    color: white;
+
+    margin-top: 6px !important;
+}
+
+#botao-cancelar:hover {
+    background-color: #545b62;
+}
+
+
+/* ========================================= */
+/* ÁREA DE BUSCA */
+/* ========================================= */
+
+.area-busca {
+    margin-bottom: 10px;
+}
+
+.area-busca input {
+    width: 100%;
+
+    padding: 10px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    font-size: 14px;
+}
+
+
+/* ========================================= */
+/* FILTROS */
+/* ========================================= */
+
+.area-filtros {
+    margin-bottom: 15px;
+}
+
+.titulo-filtros {
+    font-size: 12px;
+
+    font-weight: bold;
+
+    margin-bottom: 5px;
+
+    color: #555;
+}
+
+.controles-filtros {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+.controles-filtros select {
+    padding: 7px 10px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    background-color: white;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+#botao-limpar-filtros {
+    padding: 7px 12px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background-color: #6c757d;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 12px;
+}
+
+#botao-limpar-filtros:hover {
+    background-color: #545b62;
+}
+
+#contador-movimentacoes {
+    font-size: 12px;
+
+    color: #666;
+
+    margin-top: 7px;
+}
+
+
+/* ========================================= */
+/* LISTA DE MOVIMENTAÇÕES */
+/* ========================================= */
+
+#lista-movimentacoes {
+    width: 100%;
+}
+
+
+/* ========================================= */
+/* CARD DE MOVIMENTAÇÃO */
+/* ========================================= */
+
+.card {
+    background-color: white;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    padding: 12px 14px;
+
+    margin-bottom: 10px;
+
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr auto;
+
+    align-items: center;
+
+    gap: 10px;
+
+    min-height: 65px;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ========================================= */
+/* ÁREA 1 - INFORMAÇÕES */
+/* ========================================= */
+
+.card-info {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    min-width: 0;
+}
+
+.card-descricao {
+    font-size: 15px;
+
+    font-weight: bold;
+
+    margin-bottom: 3px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.card-categoria {
+    font-size: 11px;
+
+    color: #555;
+
+    margin-bottom: 2px;
+}
+
+.card-data {
+    font-size: 10px;
+
+    color: #888;
+}
+
+
+/* ========================================= */
+/* ÁREA 2 - INFORMAÇÕES FINANCEIRAS */
+/* ========================================= */
+
+.card-financeiro {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 120px;
+}
+
+.card-valor {
+    font-size: 15px;
+
+    font-weight: bold;
+
+    margin-bottom: 3px;
+}
+
+.card-tipo {
+    font-size: 11px;
+
+    text-transform: capitalize;
+}
+
+
+/* ========================================= */
+/* ÁREA 3 - BOTÕES */
+/* ========================================= */
+
+.card-botoes {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 7px;
+
+    min-width: 125px;
+}
+
+.botao-editar,
+.botao-excluir {
+    min-width: 62px;
+
+    padding: 7px 10px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    color: white;
+}
+
+
+/* ========================================= */
+/* BOTÃO EDITAR */
+/* ========================================= */
+
+.botao-editar {
+    background-color: #007bff;
+}
+
+.botao-editar:hover {
+    background-color: #0056b3;
+}
+
+
+/* ========================================= */
+/* BOTÃO EXCLUIR */
+/* ========================================= */
+
+.botao-excluir {
+    background-color: #dc3545;
+}
+
+.botao-excluir:hover {
+    background-color: #a71d2a;
+}
+
+
+/* ========================================= */
+/* RECEITA */
+/* ========================================= */
+
+.receita {
+    border-left: 4px solid #008f20;
+}
+
+.receita .card-descricao,
+.receita .card-valor,
+.receita .card-tipo {
+    color: #008f20;
+}
+
+
+/* ========================================= */
+/* DESPESA */
+/* ========================================= */
+
+.despesa {
+    border-left: 4px solid #ff0000;
+}
+
+.despesa .card-descricao,
+.despesa .card-valor,
+.despesa .card-tipo {
+    color: #ff0000;
+}
+
+
+/* ========================================= */
+/* MENSAGEM SEM RESULTADOS */
+/* ========================================= */
+
+.mensagem-vazia {
+    background-color: white;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+/* ========================================= */
+/* RESPONSIVIDADE - TABLET */
+/* ========================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 20px 15px;
+    }
+
+
+    .conteiner {
+        width: 100%;
+    }
+
+
+    #resumo {
+        gap: 10px;
+    }
+
+
+    .resumo-card {
+        padding: 15px 8px;
+    }
+
+
+    .resumo-valor {
+        font-size: 16px;
+    }
+
+
+
+    /* ========================================= */
+    /* INDICADORES - TABLET */
+    /* ========================================= */
+
+    .dashboard-indicadores {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+    .indicador-card {
+        min-height: 100px;
+    }
+
+
+    /* ----------------------------- */
+    /* GRÁFICOS */
+    /* ----------------------------- */
+
+    .graficos {
+        grid-template-columns: 1fr;
+    }
+
+
+    .grafico-largo {
+        grid-column: auto;
+    }
+
+
+    .grafico-container {
+        height: 250px;
+    }
+
+
+    /* ----------------------------- */
+    /* CARDS DE MOVIMENTAÇÃO */
+    /* ----------------------------- */
+
+    .card {
+        grid-template-columns: 1fr 1fr auto;
+
+        padding: 11px 10px;
+
+        gap: 5px;
+    }
+
+
+    .card-financeiro {
+        min-width: 100px;
+    }
+
+
+    .card-botoes {
+        min-width: auto;
+
+        gap: 5px;
+    }
+
+
+    .botao-editar,
+    .botao-excluir {
+        min-width: 55px;
+
+        padding: 7px 8px;
+    }
+
+}
+
+
+/* ========================================= */
+/* RESPONSIVIDADE - CELULAR */
+/* ========================================= */
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 15px 10px;
+    }
+
+
+    h1 {
+        font-size: 25px;
+    }
+
+
+    h2 {
+        font-size: 19px;
+    }
+
+
+    /* ----------------------------- */
+    /* RESUMO */
+    /* ----------------------------- */
+
+    #resumo {
+        grid-template-columns: 1fr;
+    }
+
+
+    .resumo-card {
+        padding: 14px;
+    }
+
+
+
+    /* ========================================= */
+    /* INDICADORES - CELULAR */
+    /* ========================================= */
+
+    .dashboard-indicadores {
+        grid-template-columns: 1fr;
+    }
+
+    .indicador-card {
+        min-height: 90px;
+    }
+
+
+    /* ----------------------------- */
+    /* FILTROS */
+    /* ----------------------------- */
+
+    .controles-filtros {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .controles-filtros select,
+    #botao-limpar-filtros {
+        width: 100%;
+    }
+
+
+    /* ----------------------------- */
+    /* CARDS */
+    /* ----------------------------- */
+
+    .card {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        padding: 13px;
+    }
+
+
+    .card-financeiro {
+        align-items: flex-start;
+
+        min-width: 0;
+    }
+
+
+    .card-botoes {
+        width: 100%;
+
+        justify-content: flex-end;
+
+        min-width: 0;
+    }
+
+
+    .card-descricao {
+        font-size: 16px;
+    }
+
+
+    .card-valor {
+        font-size: 15px;
+    }
+
+}
