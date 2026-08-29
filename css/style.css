@@ -1187,6 +1187,110 @@ h3 {
     font-size: 14px;
 }
 
+/* ========================================= */
+/* ESTADO VAZIO DOS GRÁFICOS */
+/* ========================================= */
+
+.estado-vazio-grafico {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================= */
+/* ÍCONE */
+/* ========================================= */
+
+.estado-vazio-icone {
+    font-size: 32px;
+
+    margin-bottom: 10px;
+}
+
+
+/* ========================================= */
+/* TÍTULO */
+/* ========================================= */
+
+.estado-vazio-titulo {
+    font-size: 15px;
+
+    font-weight: bold;
+
+    color: #333;
+
+    margin-bottom: 6px;
+}
+
+
+/* ========================================= */
+/* TEXTO */
+/* ========================================= */
+
+.estado-vazio-texto {
+    max-width: 280px;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+
+    color: #777;
+
+    margin-bottom: 15px;
+}
+
+
+/* ========================================= */
+/* BOTÃO */
+/* ========================================= */
+
+.botao-estado-vazio {
+    padding: 9px 16px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background-color: #ffff00;
+
+    color: #000;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        transform 0.1s;
+}
+
+
+.botao-estado-vazio:hover {
+    background-color: #e6e600;
+}
+
+
+.botao-estado-vazio:active {
+    transform: scale(0.98);
+}
+
 
 /* ========================================= */
 /* RESPONSIVIDADE - TABLET */

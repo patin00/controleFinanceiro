@@ -175,6 +175,8 @@
 
                 <!-- RECEITAS X DESPESAS -->
 
+                <!-- RECEITAS X DESPESAS -->
+
                 <div class="grafico-card">
 
                     <h3>
@@ -184,6 +186,27 @@
                     <div class="grafico-container">
 
                         <canvas id="grafico-financeiro"></canvas>
+
+                        <div id="estado-vazio-financeiro" class="estado-vazio-grafico">
+
+                            <div class="estado-vazio-icone">
+                                📊
+                            </div>
+
+                            <div class="estado-vazio-titulo">
+                                Nenhuma movimentação
+                            </div>
+
+                            <div class="estado-vazio-texto">
+                                Adicione sua primeira movimentação
+                                para visualizar os dados.
+                            </div>
+
+                            <button type="button" class="botao-estado-vazio" id="botao-vazio-financeiro">
+                                + Adicionar Movimentação
+                            </button>
+
+                        </div>
 
                     </div>
 
@@ -202,12 +225,33 @@
 
                         <canvas id="grafico-categorias"></canvas>
 
+                        <div id="estado-vazio-categorias" class="estado-vazio-grafico">
+
+                            <div class="estado-vazio-icone">
+                                📉
+                            </div>
+
+                            <div class="estado-vazio-titulo">
+                                Nenhuma despesa
+                            </div>
+
+                            <div class="estado-vazio-texto">
+                                Adicione uma despesa para
+                                visualizar suas categorias.
+                            </div>
+
+                            <button type="button" class="botao-estado-vazio" id="botao-vazio-categorias">
+                                + Adicionar Movimentação
+                            </button>
+
+                        </div>
+
                     </div>
 
                 </div>
 
 
-                <!-- EVOLUÇÃO MENSAL -->
+                <!-- EVOLUÇÃO FINANCEIRA -->
 
                 <div class="grafico-card grafico-largo">
 
@@ -218,6 +262,27 @@
                     <div class="grafico-container grafico-evolucao">
 
                         <canvas id="grafico-evolucao"></canvas>
+
+                        <div id="estado-vazio-evolucao" class="estado-vazio-grafico">
+
+                            <div class="estado-vazio-icone">
+                                📈
+                            </div>
+
+                            <div class="estado-vazio-titulo">
+                                Sem dados para exibir
+                            </div>
+
+                            <div class="estado-vazio-texto">
+                                Adicione movimentações para
+                                acompanhar sua evolução financeira.
+                            </div>
+
+                            <button type="button" class="botao-estado-vazio" id="botao-vazio-evolucao">
+                                + Adicionar Movimentação
+                            </button>
+
+                        </div>
 
                     </div>
 

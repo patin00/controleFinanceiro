@@ -7,41 +7,7 @@
 /* DADOS INICIAIS                                            */
 /* ========================================================= */
 
-let movimentacoes = [
-
-    {
-        descricao: "Salario",
-        valor: 5000,
-        tipo: "receita",
-        categoria: "trabalho",
-        data: "2026-08-24"
-    },
-
-    {
-        descricao: "Mercado",
-        valor: 350,
-        tipo: "despesa",
-        categoria: "alimentacao",
-        data: "2026-08-24"
-    },
-
-    {
-        descricao: "Internet",
-        valor: 100,
-        tipo: "despesa",
-        categoria: "casa",
-        data: "2026-08-24"
-    },
-
-    {
-        descricao: "Freelance",
-        valor: 800,
-        tipo: "receita",
-        categoria: "trabalho",
-        data: "2026-08-24"
-    }
-
-];
+let movimentacoes = [];
 
 
 /* ========================================================= */
@@ -1167,6 +1133,36 @@ botaoAbrirFormulario.addEventListener(
     }
 );
 
+/* ========================================================= */
+/* BOTÕES DOS ESTADOS VAZIOS                                 */
+/* ========================================================= */
+
+const botoesEstadoVazio = [
+    document.getElementById("botao-vazio-financeiro"),
+    document.getElementById("botao-vazio-categorias"),
+    document.getElementById("botao-vazio-evolucao")
+];
+
+
+botoesEstadoVazio.forEach(
+    function (botao) {
+
+        if (!botao) {
+            return;
+        }
+
+        botao.addEventListener(
+            "click",
+            function () {
+
+                abrirNovaMovimentacao();
+
+            }
+        );
+
+    }
+);
+
 
 /* ========================================================= */
 /* FECHAR MODAL                                              */
@@ -1343,7 +1339,89 @@ function salvarMovimentacoes() {
     );
 
 }
+/* ========================================================= */
+/* ESTADOS VAZIOS DOS GRÁFICOS                               */
+/* ========================================================= */
 
+function atualizarEstadosVazios() {
+
+    const lista =
+        obterMovimentacoesFiltradas();
+
+
+    const despesas =
+        lista.filter(
+            function (movimentacao) {
+
+                return (
+                    movimentacao.tipo ===
+                    "despesa"
+                );
+
+            }
+        );
+
+
+    const estadoFinanceiro =
+        document.getElementById(
+            "estado-vazio-financeiro"
+        );
+
+
+    const estadoCategorias =
+        document.getElementById(
+            "estado-vazio-categorias"
+        );
+
+
+    const estadoEvolucao =
+        document.getElementById(
+            "estado-vazio-evolucao"
+        );
+
+
+    /* ----------------------------------------- */
+    /* RECEITAS X DESPESAS */
+    /* ----------------------------------------- */
+
+    if (estadoFinanceiro) {
+
+        estadoFinanceiro.style.display =
+            lista.length === 0
+                ? "flex"
+                : "none";
+
+    }
+
+
+    /* ----------------------------------------- */
+    /* DESPESAS POR CATEGORIA */
+    /* ----------------------------------------- */
+
+    if (estadoCategorias) {
+
+        estadoCategorias.style.display =
+            despesas.length === 0
+                ? "flex"
+                : "none";
+
+    }
+
+
+    /* ----------------------------------------- */
+    /* EVOLUÇÃO FINANCEIRA */
+    /* ----------------------------------------- */
+
+    if (estadoEvolucao) {
+
+        estadoEvolucao.style.display =
+            lista.length === 0
+                ? "flex"
+                : "none";
+
+    }
+
+}
 
 /* ========================================================= */
 /* ATUALIZAR GRÁFICO FINANCEIRO                              */
@@ -1364,13 +1442,19 @@ function atualizarGraficoFinanceiro() {
     const resultado =
         calcularResumo(lista);
 
+    if (lista.length === 0) {
 
-    if (graficoFinanceiro) {
+        if (graficoFinanceiro) {
 
-        graficoFinanceiro.destroy();
+            graficoFinanceiro.destroy();
+
+            graficoFinanceiro = null;
+
+        }
+
+        return;
 
     }
-
 
     graficoFinanceiro =
         new Chart(
@@ -1518,14 +1602,19 @@ function atualizarGraficoCategorias() {
         Object.values(
             despesasPorCategoria
         );
+    if (categorias.length === 0) {
 
+        if (graficoCategorias) {
 
-    if (graficoCategorias) {
+            graficoCategorias.destroy();
 
-        graficoCategorias.destroy();
+            graficoCategorias = null;
+
+        }
+
+        return;
 
     }
-
 
     graficoCategorias =
         new Chart(
@@ -2744,7 +2833,10 @@ function atualizarTela() {
     /* ================================= */
 
     renderizarMovimentacoes();
-
+    /* ================================= */
+    /* GRAFICOS NULOS QUANDO INICIAR */
+    /* ================================= */
+    atualizarEstadosVazios();
 
     /* ================================= */
     /* INDICADORES DO DASHBOARD */
