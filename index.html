@@ -228,93 +228,123 @@
         </section>
 
         <!-- ========================= -->
-        <!-- FORMULÁRIO -->
+        <!-- ADICIONAR MOVIMENTAÇÃO -->
         <!-- ========================= -->
 
         <section id="secao-formulario">
 
-            <h2>Adicionar Movimentação</h2>
-
-            <form id="form-movimentacao">
-
-                <div class="form-grupo">
-
-                    <label for="descricao">
-                        Descrição
-                    </label>
-
-                    <input type="text" id="descricao" placeholder="Ex: Mercado">
-
-                </div>
-
-
-                <div class="form-grupo">
-
-                    <label for="valor">
-                        Valor
-                    </label>
-
-                    <input type="number" id="valor" placeholder="Ex: 150" step="0.01" min="0">
-
-                </div>
-
-
-                <div class="form-grupo">
-
-                    <label for="tipo">
-                        Tipo
-                    </label>
-
-                    <select id="tipo">
-
-                        <option value="receita">
-                            Receita
-                        </option>
-
-                        <option value="despesa">
-                            Despesa
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-grupo">
-
-                    <label for="categoria">
-                        Categoria
-                    </label>
-
-                    <input type="text" id="categoria" placeholder="Ex: Alimentação">
-
-                </div>
-
-
-                <div class="form-grupo">
-
-                    <label for="data">
-                        Data
-                    </label>
-
-                    <input type="date" id="data">
-
-                </div>
-
-
-                <button class="button1" type="submit">
-                    Adicionar Movimentação
-                </button>
-
-
-                <button type="button" id="botao-cancelar" style="display: none;">
-                    Cancelar Edição
-                </button>
-
-            </form>
+            <button type="button" id="botao-abrir-formulario" class="botao-adicionar-movimentacao">
+                + Adicionar Movimentação
+            </button>
 
         </section>
 
+
+        <!-- ========================= -->
+        <!-- MODAL -->
+        <!-- ========================= -->
+
+        <div id="modal-formulario" class="modal" aria-hidden="true">
+
+            <div class="modal-conteudo" role="dialog" aria-modal="true" aria-labelledby="titulo-modal">
+
+                <div class="modal-cabecalho">
+
+                    <h2 id="titulo-modal">
+                        Adicionar Movimentação
+                    </h2>
+
+                    <button type="button" id="botao-fechar-modal" class="botao-fechar-modal" aria-label="Fechar">
+                        ×
+                    </button>
+
+                </div>
+
+
+                <form id="form-movimentacao">
+
+                    <div class="form-grupo">
+
+                        <label for="descricao">
+                            Descrição
+                        </label>
+
+                        <input type="text" id="descricao" placeholder="Ex: Mercado">
+
+                    </div>
+
+
+                    <div class="form-grupo">
+
+                        <label for="valor">
+                            Valor
+                        </label>
+
+                        <input type="number" id="valor" placeholder="Ex: 150" step="0.01" min="0">
+
+                    </div>
+
+
+                    <div class="form-grupo">
+
+                        <label for="tipo">
+                            Tipo
+                        </label>
+
+                        <select id="tipo">
+
+                            <option value="receita">
+                                Receita
+                            </option>
+
+                            <option value="despesa">
+                                Despesa
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-grupo">
+
+                        <label for="categoria">
+                            Categoria
+                        </label>
+
+                        <input type="text" id="categoria" placeholder="Ex: Alimentação">
+
+                    </div>
+
+
+                    <div class="form-grupo">
+
+                        <label for="data">
+                            Data
+                        </label>
+
+                        <input type="date" id="data">
+
+                    </div>
+
+
+                    <div class="botoes-formulario">
+
+                        <button class="button1" type="submit">
+                            Adicionar Movimentação
+                        </button>
+
+                        <button type="button" id="botao-cancelar">
+                            Cancelar
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
 
         <!-- ========================= -->
         <!-- MOVIMENTAÇÕES -->

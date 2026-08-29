@@ -459,23 +459,225 @@ h3 {
 }
 
 
-/* ========================================= */
-/* FORMULÁRIO */
-/* ========================================= */
+/* ================================= */
+/* BOTÃO ADICIONAR MOVIMENTAÇÃO */
+/* ================================= */
 
-#form-movimentacao {
-    background-color: white;
+.botao-adicionar-movimentacao {
+    display: block;
+
+    width: 100%;
+
+    padding: 14px;
+
+    background-color: #ffff00;
+
+    color: #000;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        transform 0.1s;
+}
+
+.botao-adicionar-movimentacao:hover {
+    background-color: #e6e600;
+}
+
+.botao-adicionar-movimentacao:active {
+    transform: scale(0.99);
+}
+
+
+/* ================================= */
+/* MODAL */
+/* ================================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
 
     padding: 20px;
 
-    border: 1px solid #ddd;
+    background-color: rgba(0, 0, 0, 0.55);
 
-    border-radius: 8px;
+    z-index: 1000;
 
-    margin-bottom: 25px;
+    box-sizing: border-box;
 }
 
+
+/* MODAL ABERTO */
+
+.modal.aberto {
+    display: flex;
+}
+
+
+/* ================================= */
+/* CONTEÚDO DO MODAL */
+/* ================================= */
+
+.modal-conteudo {
+
+    width: 100%;
+
+    max-width: 600px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background-color: #ffffff;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+
+    animation: abrirModal 0.2s ease;
+}
+
+
+/* ================================= */
+/* ANIMAÇÃO */
+/* ================================= */
+
+@keyframes abrirModal {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(-15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* ================================= */
+/* CABEÇALHO DO MODAL */
+/* ================================= */
+
+.modal-cabecalho {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.modal-cabecalho h2 {
+
+    margin: 0;
+
+    font-size: 22px;
+}
+
+
+/* ================================= */
+/* BOTÃO FECHAR */
+/* ================================= */
+
+.botao-fechar-modal {
+
+    width: 32px;
+
+    height: 32px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background-color: #f1f1f1;
+
+    color: #333;
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        color 0.2s;
+}
+
+.botao-fechar-modal:hover {
+
+    background-color: #dc3545;
+
+    color: white;
+
+}
+
+
+/* ================================= */
+/* FORMULÁRIO */
+/* ================================= */
+
+#form-movimentacao {
+
+    width: 100%;
+
+    margin: 0;
+
+    background-color: #ffffff;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* ================================= */
+/* GRUPOS DOS CAMPOS */
+/* ================================= */
+
 .form-grupo {
+
     display: flex;
 
     flex-direction: column;
@@ -484,48 +686,125 @@ h3 {
 }
 
 .form-grupo label {
+
     margin-bottom: 6px;
 
-    font-weight: bold;
+    font-size: 14px;
 
-    font-size: 13px;
+    font-weight: bold;
 }
+
+
+/* ================================= */
+/* CAMPOS */
+/* ================================= */
 
 .form-grupo input,
 .form-grupo select {
+
     width: 100%;
 
-    padding: 10px;
+    padding: 11px 12px;
 
     border: 1px solid #ccc;
 
     border-radius: 5px;
 
-    font-size: 14px;
+    font-family: Arial, sans-serif;
 
-    background-color: white;
+    font-size: 15px;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
 }
 
 .form-grupo input:focus,
-.form-grupo select:focus,
-.area-busca input:focus {
+.form-grupo select:focus {
+
     outline: none;
 
     border-color: #007bff;
 
     box-shadow:
-        0 0 0 2px rgba(0, 123, 255, 0.1);
+        0 0 0 2px rgba(0, 123, 255, 0.12);
+}
+
+.form-grupo input::placeholder {
+
+    color: #999;
 }
 
 
-/* ========================================= */
+/* ================================= */
 /* BOTÕES DO FORMULÁRIO */
-/* ========================================= */
+/* ================================= */
 
-#form-movimentacao button {
-    width: 100%;
+.botoes-formulario {
 
-    padding: 11px;
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+/* BOTÃO ADICIONAR / SALVAR */
+
+#form-movimentacao button[type="submit"] {
+
+    flex: 1;
+
+    padding: 12px;
+
+    background-color: #ffff00;
+
+    color: #000;
+
+    border: none;
+
+    border-radius: 5px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        transform 0.1s;
+}
+
+#form-movimentacao button[type="submit"]:hover {
+
+    background-color: #e6e600;
+}
+
+#form-movimentacao button[type="submit"]:active {
+
+    transform: scale(0.99);
+}
+
+
+/* ================================= */
+/* BOTÃO CANCELAR */
+/* ================================= */
+
+#botao-cancelar {
+
+    flex: 0 0 120px;
+
+    padding: 12px;
+
+    background-color: #6c757d;
+
+    color: white;
 
     border: none;
 
@@ -533,45 +812,57 @@ h3 {
 
     cursor: pointer;
 
-    font-size: 14px;
-
-    margin-top: 3px;
-}
-
-
-/* ========================================= */
-/* BOTÃO ADICIONAR / SALVAR */
-/* ========================================= */
-
-#form-movimentacao button[type="submit"] {
-    background-color: #ffff00;
-
-    color: #000;
-
-    font-weight: 500;
-}
-
-#form-movimentacao button[type="submit"]:hover {
-    background-color: #e6e600;
-}
-
-
-/* ========================================= */
-/* BOTÃO CANCELAR */
-/* ========================================= */
-
-#botao-cancelar {
-    background-color: #6c757d;
-
-    color: white;
-
-    margin-top: 6px !important;
+    transition: background-color 0.2s;
 }
 
 #botao-cancelar:hover {
-    background-color: #545b62;
+
+    background-color: #5a6268;
 }
 
+
+/* ================================= */
+/* RESPONSIVIDADE DO MODAL */
+/* ================================= */
+
+@media (max-width: 600px) {
+
+    .modal {
+
+        padding: 10px;
+
+    }
+
+    .modal-conteudo {
+
+        max-height: 95vh;
+
+        padding: 20px;
+
+    }
+
+    .modal-cabecalho h2 {
+
+        font-size: 19px;
+
+    }
+
+    .botoes-formulario {
+
+        flex-direction: column;
+
+    }
+
+    #form-movimentacao button[type="submit"],
+    #botao-cancelar {
+
+        width: 100%;
+
+        flex: none;
+
+    }
+
+}
 
 /* ========================================= */
 /* ÁREA DE BUSCA */

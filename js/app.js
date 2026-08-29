@@ -65,11 +65,35 @@ const formulario =
     document.getElementById("form-movimentacao");
 
 const botaoFormulario =
-    formulario.querySelector("button[type='submit']");
+    formulario.querySelector(
+        "button[type='submit']"
+    );
 
 const botaoCancelar =
-    document.getElementById("botao-cancelar");
+    document.getElementById(
+        "botao-cancelar"
+    );
 
+
+const modalFormulario =
+    document.getElementById(
+        "modal-formulario"
+    );
+
+const botaoAbrirFormulario =
+    document.getElementById(
+        "botao-abrir-formulario"
+    );
+
+const botaoFecharModal =
+    document.getElementById(
+        "botao-fechar-modal"
+    );
+
+const tituloModal =
+    document.getElementById(
+        "titulo-modal"
+    );
 const filtroTipo =
     document.getElementById("filtro-tipo");
 
@@ -1096,7 +1120,133 @@ function renderizarMovimentacoes() {
 
 }
 
+/* ========================================================= */
+/* ABRIR MODAL                                               */
+/* ========================================================= */
 
+function abrirModalFormulario() {
+
+    modalFormulario.classList.add(
+        "aberto"
+    );
+
+    modalFormulario.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+}
+
+
+/* ========================================================= */
+/* FECHAR MODAL                                              */
+/* ========================================================= */
+
+function fecharModalFormulario() {
+
+    modalFormulario.classList.remove(
+        "aberto"
+    );
+
+    modalFormulario.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+}
+/* ========================================================= */
+/* ABRIR FORMULÁRIO                                          */
+/* ========================================================= */
+
+botaoAbrirFormulario.addEventListener(
+    "click",
+    function () {
+
+        abrirNovaMovimentacao();
+
+    }
+);
+
+
+/* ========================================================= */
+/* FECHAR MODAL                                              */
+/* ========================================================= */
+
+botaoFecharModal.addEventListener(
+    "click",
+    function () {
+
+        cancelarEdicao();
+
+    }
+);
+
+
+/* ========================================================= */
+/* FECHAR CLICANDO FORA                                      */
+/* ========================================================= */
+
+modalFormulario.addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            event.target ===
+            modalFormulario
+        ) {
+
+            cancelarEdicao();
+
+        }
+
+    }
+);
+
+
+/* ========================================================= */
+/* FECHAR COM ESC                                             */
+/* ========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Escape" &&
+            modalFormulario.classList.contains(
+                "aberto"
+            )
+        ) {
+
+            cancelarEdicao();
+
+        }
+
+    }
+);
+
+/* ========================================================= */
+/* NOVA MOVIMENTAÇÃO                                         */
+/* ========================================================= */
+
+function abrirNovaMovimentacao() {
+
+    formulario.reset();
+
+    indiceEmEdicao = null;
+
+    botaoFormulario.textContent =
+        "Adicionar Movimentação";
+
+    botaoCancelar.style.display =
+        "block";
+
+    tituloModal.textContent =
+        "Adicionar Movimentação";
+
+    abrirModalFormulario();
+
+}
 /* ========================================================= */
 /* INICIAR EDIÇÃO                                            */
 /* ========================================================= */
@@ -1144,16 +1294,13 @@ function iniciarEdicao(indice) {
     botaoFormulario.textContent =
         "Salvar Alterações";
 
-
     botaoCancelar.style.display =
         "block";
 
+    tituloModal.textContent =
+        "Editar Movimentação";
 
-    document.getElementById(
-        "secao-formulario"
-    ).scrollIntoView({
-        behavior: "smooth"
-    });
+    abrirModalFormulario();
 
 }
 
@@ -1166,17 +1313,18 @@ function cancelarEdicao() {
 
     formulario.reset();
 
-
-    indiceEmEdicao =
-        null;
-
+    indiceEmEdicao = null;
 
     botaoFormulario.textContent =
         "Adicionar Movimentação";
 
-
     botaoCancelar.style.display =
         "none";
+
+    tituloModal.textContent =
+        "Adicionar Movimentação";
+
+    fecharModalFormulario();
 
 }
 
@@ -2793,6 +2941,8 @@ formulario.addEventListener(
 
         formulario.reset();
 
+        fecharModalFormulario();
+
     }
 );
 
@@ -2817,7 +2967,7 @@ botaoCancelar.addEventListener(
 
 filtroTipo.addEventListener(
     "change",
-    function() {
+    function () {
 
         filtroCategoria.value =
             "todas";
@@ -2844,7 +2994,7 @@ filtroTipo.addEventListener(
 
 filtroCategoria.addEventListener(
     "change",
-    function() {
+    function () {
 
         atualizarResumo();
 
@@ -2865,7 +3015,7 @@ filtroCategoria.addEventListener(
 
 filtroMes.addEventListener(
     "change",
-    function() {
+    function () {
 
         atualizarResumo();
 
@@ -2886,7 +3036,7 @@ filtroMes.addEventListener(
 
 buscaMovimentacao.addEventListener(
     "input",
-    function() {
+    function () {
 
         atualizarResumo();
 
